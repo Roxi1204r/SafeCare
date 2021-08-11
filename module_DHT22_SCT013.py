@@ -19,7 +19,6 @@ def local_save(data):
     file.write(data+"\r\n")
     file.close()
 
-
 i2c = busio.I2C(board.SCL, board.SDA)
 
 ads = ADS.ADS1115(i2c)
@@ -38,12 +37,9 @@ while True:
         payload_dict={"temperature":temperature,
                  "Voltage":chan.voltage}
         print(json.dumps(payload_dict))
-#     message="Gas detected "+str(Gas)+", Warning "+str(Atentionare)
-#     try:
+        message="Temperature "+str(temperature)
         publicare.single(MQTT_TOPIC,qos = 1,hostname = MQTT_HOST,payload = json.dumps(payload_dict))
-#         local_save(message)
-#     except:
-#         pass
+        local_save(message)
     except RuntimeError:
         pass
     

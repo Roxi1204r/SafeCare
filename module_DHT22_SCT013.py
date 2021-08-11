@@ -11,7 +11,7 @@ import paho.mqtt.publish as publicare
 import json
 
 MQTT_HOST = 'mqtt.beia-telemetrie.ro'
-MQTT_TOPIC = 'odsi.safecare'
+MQTT_TOPIC = 'odsi/safecare'
 logfile="data.txt"
 
 def local_save(data):

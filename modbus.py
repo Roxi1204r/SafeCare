@@ -92,53 +92,6 @@ def updating_writer(a):
         
         payload_temp={"temperature":temperature}
         publicare.single(MQTT_TOPIC,qos = 1,hostname = MQTT_HOST,payload = json.dumps(payload_temp))
-        
-#         chan = AnalogIn(ads, ADS.P0)
-#         values[1] = round(chan.voltage, 2)
-        
-#         payload_dict={"temperature":temperature,
-#                       "voltage":round(chan.voltage, 2)}
-#         message="Temperature "+str(round(temperature, 2)) + "Voltage "+str(round(chan.voltage, 2))
-#         publicare.single(MQTT_TOPIC,qos = 1,hostname = MQTT_HOST,payload = json.dumps(payload_dict))
-#         local_save(message)
-        
-#         log.debug("new values: " + str(values))
-#         context[slave_id].setValues(register, address, values)
-#         if(flag):
-#             flag = 0
-#             temperature = dht22.temperature
-#     #         humidity = dht22.humidity
-#         
-#             # Note that sometimes you won't get a reading and
-#             # the results will be null (because Linux can't
-#             # guarantee the timing of calls to read the sensor).  
-#             # If this happens try again!
-# 
-# 
-#             payload_dict={"temperature":temperature}
-#             message="Temperature "+str(round(temperature, 2))
-#             publicare.single(MQTT_TOPIC,qos = 1,hostname = MQTT_HOST,payload = json.dumps(payload_dict))
-#             local_save(message)
-#             values[0] = temperature
-#             
-#             log.debug("new values: " + str(values))
-#             context[slave_id].setValues(register, address, values)
-#         
-#         
-#         else:
-#             flag = 1
-#             chan = AnalogIn(ads, ADS.P0)
-#             
-#             payload_dict={"voltage":round(chan.voltage, 2)}
-#             message="Voltage "+str(round(chan.voltage, 2))
-#             publicare.single(MQTT_TOPIC,qos = 1,hostname = MQTT_HOST,payload = json.dumps(payload_dict))
-#             local_save(message)
-#             
-#             values[1] = round(chan.voltage, 2)
-#             
-#             log.debug("new values: " + str(values))
-#             context[slave_id].setValues(register, address, values)
-    
     except:
         pass
     
